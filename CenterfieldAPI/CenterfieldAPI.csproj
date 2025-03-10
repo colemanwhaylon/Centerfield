@@ -10,4 +10,16 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Behaviors\" />
+    <Folder Include="Entities\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Features\CoffeeShops\CreateCoffeeShop\" />
+    <Folder Include="Features\CoffeeShops\GetCoffeeShops\" />
+    <Folder Include="Features\CoffeeShops\GetCoffeeShopsByRating\" />
+    <Folder Include="Features\CoffeeShops\GetCoffeeShopsByLocation\" />
+    <Folder Include="Database\" />
+  </ItemGroup>
+
 </Project>

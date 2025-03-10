@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CenterfieldAPI", "CenterfieldAPI.csproj", "{B443BAC7-8DDB-4170-B35A-E556FDCFB1FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CenterfieldAPI.Test", "..\CenterfieldAPI.Test\CenterfieldAPI.Test.csproj", "{71235731-7D50-4766-9635-63356145AACA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B443BAC7-8DDB-4170-B35A-E556FDCFB1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B443BAC7-8DDB-4170-B35A-E556FDCFB1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B443BAC7-8DDB-4170-B35A-E556FDCFB1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B443BAC7-8DDB-4170-B35A-E556FDCFB1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71235731-7D50-4766-9635-63356145AACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71235731-7D50-4766-9635-63356145AACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71235731-7D50-4766-9635-63356145AACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71235731-7D50-4766-9635-63356145AACA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

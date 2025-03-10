@@ -31,3 +31,5 @@
 *.out
 *.app
 /.vs
+/CenterfieldAPI.Test/bin/Debug/net9.0
+/CenterfieldAPI.Test/obj
