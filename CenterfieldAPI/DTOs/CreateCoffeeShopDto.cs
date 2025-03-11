@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CenterfieldAPI.Features.CoffeeShops.CreateCoffeeShop
+namespace CenterfieldAPI.DTOs
 {
-    public partial record CreateCoffeeShopDto(string name, TimeOnly openingTime, TimeOnly closingTime)
+    public class CreateCoffeeShopDto(string name, TimeOnly openingTime, TimeOnly closingTime)
     {
         [Required(ErrorMessage = "Name is required.")]
         [StringLength(50)]

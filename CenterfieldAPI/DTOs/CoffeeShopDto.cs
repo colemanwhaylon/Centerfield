@@ -1,4 +1,4 @@
-﻿namespace CenterfieldAPI.Features.CoffeeShops.GetCoffeeShops
+﻿namespace CenterfieldAPI.DTOs
 {
     public record CoffeeShopDto
     (

@@ -1,6 +1,22 @@
 @CenterfieldAPI_HostAddress = http://localhost:5119
+###
 
-GET {{CenterfieldAPI_HostAddress}}/weatherforecast/
+GET {{CenterfieldAPI_HostAddress}}/coffeeshops/all
 Accept: application/json
 
 ###
+GET {{CenterfieldAPI_HostAddress}}/coffeeshops/filter?minRating=4.95&isOpen=true
+Accept: application/json
+
+###
+
+POST {{CenterfieldAPI_HostAddress}}/coffeeshops
+Content-Type: application/json
+
+{
+    "name": "Testman - Weimann",
+    "openingTime": "09:45:44.6255136",
+    "closingTime": "22:16:30.1353897",
+    "location": "66666 Welch Villages, North Jocelynburgh, Tuvalu",
+    "rating": 5.0
+}

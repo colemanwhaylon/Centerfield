@@ -1,5 +1,4 @@
-﻿using System;
-using Bogus;
+﻿using Bogus;
 using CenterfieldAPI.Entities;
 using CenterfieldAPI.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -52,7 +51,7 @@ namespace CenterfieldAPI.Database
                 .RuleFor(o => o.Location, f => f.Address.FullAddress())
                 .RuleFor(o => o.Rating, f => f.Random.Decimal(0.0m, 5.0m));
 
-            var list =  coffeeShopFaker.GenerateBetween(1000, 2000);
+            var list = coffeeShopFaker.GenerateBetween(1000, 2000);
             return list;
         }
     }

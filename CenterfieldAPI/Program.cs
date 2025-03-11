@@ -1,8 +1,7 @@
 
 using CenterfieldAPI.Database;
-using CenterfieldAPI.Features.CoffeeShops;
-using CenterfieldAPI.Features.CoffeeShops.CreateCoffeeShop;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace CenterfieldAPI
 {
@@ -13,6 +12,11 @@ namespace CenterfieldAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.Configure<JsonOptions>(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            });
+
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -36,13 +40,12 @@ namespace CenterfieldAPI
 
             app.MapControllers();
 
-            //Map all Coffeeshop Endpoints
-            app.MapCoffeeShops();
-
             //Prepopulate Database
             app.InitializeDb();
 
             app.Run();
         }
+
+
     }
 }

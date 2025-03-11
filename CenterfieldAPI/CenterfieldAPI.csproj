@@ -21,10 +21,9 @@
 
   <ItemGroup>
     <Folder Include="Behaviors\" />
-    <Folder Include="DTOs\" />
+    <Folder Include="Constants\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Features\CoffeeShops\GetCoffeeShopsByRating\" />
-    <Folder Include="Features\CoffeeShops\GetCoffeeShopsByLocation\" />
+    <Folder Include="Features\" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Diagnostics;
-using System.Net;
-using System.Text;
-
-namespace CenterfieldAPI.Test
+﻿namespace CenterfieldAPI.Test
 {
     public class CoffeShopTest
     {

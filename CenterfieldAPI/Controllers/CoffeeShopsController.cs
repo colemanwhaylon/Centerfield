@@ -1,17 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using CenterfieldAPI.Features.CoffeeShops.CreateCoffeeShop;
-using CenterfieldAPI.Features.CoffeeShops.GetCoffeeShops;
-using Microsoft.EntityFrameworkCore;
+﻿using CenterfieldAPI.Database;
+using CenterfieldAPI.DTOs;
 using CenterfieldAPI.Entities;
-using CenterfieldAPI.Database;
 using CenterfieldAPI.Extensions;
-using CenterfieldAPI.Features.CoffeeShops.Constants;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CenterfieldAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CoffeeShopsController : ControllerBase
     {
@@ -26,8 +22,8 @@ namespace CenterfieldAPI.Controllers
         }
 
         // GET: api/coffeeshops
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CreateCoffeeShopDto>>> Get()
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<CreateCoffeeShopDto>>> GetAll()
         {
             var coffeeShops = _dbContext.CoffeeShops
                      .Select(coffeeShop => new CoffeeShopDto(
@@ -45,8 +41,44 @@ namespace CenterfieldAPI.Controllers
             return Ok(await Task.FromResult(coffeeShops));
         }
 
+        // GET: api/coffeeshops
+        // Filtered GET by minRating and/or isOpen
+        [HttpGet("filter")]
+        public async Task<ActionResult<IEnumerable<CreateCoffeeShopDto>>> GetFiltered(
+            [FromQuery] decimal? minRating,
+            [FromQuery] bool? isOpen)
+        {
+            var query = _dbContext.CoffeeShops.AsQueryable();
+
+            if (minRating.HasValue)
+            {
+                query = query.Where(b => b.Rating >= minRating);
+            }
+
+            var coffeeShops = query.AsEnumerable();
+
+            if (isOpen.HasValue)
+            {
+                coffeeShops = coffeeShops.Where(b => IsCoffeeShopOpen(b) == isOpen.Value);
+            }
+
+            var businesses =  coffeeShops
+                     .Select(coffeeShop => new CoffeeShopDto(
+                         coffeeShop.Name,
+                         coffeeShop.OpeningTime,
+                         coffeeShop.ClosingTime,
+                         coffeeShop.Location,
+                         coffeeShop.Rating,
+                         IsCoffeeShopOpen(coffeeShop)
+                         ))
+                     .ToList();
+
+            return Ok(await Task.FromResult(businesses));
+        }
+
         // POST: api/coffeeshops
         [HttpPost]
+        [ActionName("Post")]
         public async Task<ActionResult<CoffeeShopDetailsDto>> Post([FromBody] CreateCoffeeShopDto coffeeShopDto)
         {
             if (!ModelState.IsValid)
@@ -69,7 +101,7 @@ namespace CenterfieldAPI.Controllers
             await _dbContext.SaveChangesAsync();
 
             // Return a Created response with the newly added coffee shop
-            return CreatedAtAction(EndpointNames.GetCoffeeShops,
+            return CreatedAtAction("Post",
                 new { id = coffeeShop.Id },
                 new CoffeeShopDetailsDto(
                     coffeeShop.Id,
@@ -83,6 +115,7 @@ namespace CenterfieldAPI.Controllers
 
         private static bool IsCoffeeShopOpen(CoffeeShop coffeeShop)
         {
+            // Get the current date and time
             TimeOnly currentTime = TimeOnly.FromDateTime(DateTime.Now);
             // Check if current time is between opening and closing times
             return currentTime >= coffeeShop.OpeningTime && currentTime <= coffeeShop.ClosingTime;

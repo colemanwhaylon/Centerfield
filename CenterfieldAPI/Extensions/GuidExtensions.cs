@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-using System;
-
-namespace CenterfieldAPI.Extensions
+﻿namespace CenterfieldAPI.Extensions
 {
 
     public static class GuidExtensions

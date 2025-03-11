@@ -1,5 +1,4 @@
-﻿using CenterfieldAPI.Abstractions;
-using CenterfieldAPI.Entities;
+﻿using CenterfieldAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CenterfieldAPI.Database;
