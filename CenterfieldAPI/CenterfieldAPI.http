@@ -15,8 +15,8 @@ Content-Type: application/json
 
 {
     "name": "Testman - Weimann",
-    "openingTime": "09:45:44.6255136",
-    "closingTime": "22:16:30.1353897",
+    "openingTime": "00:00",
+    "closingTime": "19:00",
     "location": "66666 Welch Villages, North Jocelynburgh, Tuvalu",
     "rating": 5.0
 }

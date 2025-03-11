@@ -30,8 +30,10 @@ public class CoffeeShopContext(DbContextOptions<CoffeeShopContext> options)
         entity.Property(c => c.OpeningTime)
               .IsRequired();
 
+
         entity.Property(c => c.ClosingTime)
               .IsRequired();
+             
 
         // Configure Location (Optional)
         entity.Property(c => c.Location)
