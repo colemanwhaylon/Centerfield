@@ -26,7 +26,7 @@ namespace CenterfieldAPI.Test
 
             // Optional properties should be null initially
             Assert.Null(coffeeShop.Location);
-            Assert.Null(coffeeShop.Rating);
+            Assert.InRange(coffeeShop.Rating, 0.0m, 5.0m);
 
         }
     }

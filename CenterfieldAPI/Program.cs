@@ -1,5 +1,7 @@
 
 using CenterfieldAPI.Database;
+using CenterfieldAPI.Features.CoffeeShops;
+using CenterfieldAPI.Features.CoffeeShops.CreateCoffeeShop;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CenterfieldAPI
@@ -33,6 +35,9 @@ namespace CenterfieldAPI
 
 
             app.MapControllers();
+
+            //Map all Coffeeshop Endpoints
+            app.MapCoffeeShops();
 
             //Prepopulate Database
             app.InitializeDb();
