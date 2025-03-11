@@ -7,19 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
+    <PackageReference Include="Bogus" Version="35.6.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Behaviors\" />
-    <Folder Include="Entities\" />
-    <Folder Include="DTOs\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Features\CoffeeShops\CreateCoffeeShop\" />
     <Folder Include="Features\CoffeeShops\GetCoffeeShops\" />
     <Folder Include="Features\CoffeeShops\GetCoffeeShopsByRating\" />
     <Folder Include="Features\CoffeeShops\GetCoffeeShopsByLocation\" />
-    <Folder Include="Database\" />
   </ItemGroup>
 
 </Project>

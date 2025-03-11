@@ -1,4 +1,7 @@
 
+using CenterfieldAPI.Database;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace CenterfieldAPI
 {
     public class Program
@@ -12,6 +15,9 @@ namespace CenterfieldAPI
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+            var connString = builder.Configuration.GetConnectionString("CoffeeShopConnStr");
+            builder.Services.AddSqlite<CoffeeShopContext>(connString);
 
             var app = builder.Build();
 
@@ -27,6 +33,9 @@ namespace CenterfieldAPI
 
 
             app.MapControllers();
+
+            //Prepopulate Database
+            app.InitializeDb();
 
             app.Run();
         }

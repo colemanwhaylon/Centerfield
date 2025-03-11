@@ -1,17 +1,24 @@
 ﻿namespace CenterfieldAPI.Abstractions
 {
+    using System;
+    using CenterfieldAPI.Extensions;
+
     public abstract class CoffeeShopBase
     {
-        public abstract string Name { get; set; }
-        public abstract TimeOnly OpeningTime { get; set; }
-        public abstract TimeOnly ClosingTime { get; set; }
+        protected CoffeeShopBase() { }
+        protected CoffeeShopBase(string name, TimeOnly openingTime, TimeOnly closingTime)
+        {
+            this.Id = Id.NewSequentialGuid();
+            Name = "Unnamed CoffeeShop" ;
+            OpeningTime = TimeOnly.MinValue;
+            ClosingTime = TimeOnly.MinValue;
+        }
 
-    }
-
-    public class B : CoffeeShopBase
-    {
-        public override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override TimeOnly OpeningTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public override TimeOnly ClosingTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public abstract Guid Id { get; set; } 
+        public abstract string Name { get; init; }
+        public abstract TimeOnly OpeningTime { get; init; }
+        public abstract TimeOnly ClosingTime { get; init; }
+        public virtual string? Location { get; set; }
+        public virtual decimal Rating { get; set; } = 0.0m;
     }
 }
