@@ -22,8 +22,11 @@ namespace CenterfieldAPI
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
-            var connString = builder.Configuration.GetConnectionString("CoffeeShopConnStr");
+            var connString = builder.Configuration.GetConnectionString("CoffeeShopConnStr");//BusinessConnStr
+            var businessConnString = builder.Configuration.GetConnectionString("BusinessConnStr");//BusinessConnStr
+
             builder.Services.AddSqlite<CoffeeShopContext>(connString);
+            builder.Services.AddSqlite<BusinessContext>(businessConnString);
 
             var app = builder.Build();
 
