@@ -1,5 +1,4 @@
-﻿using CenterfieldAPI.Attributes;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CenterfieldAPI.DTOs
 {
