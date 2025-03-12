@@ -18,7 +18,10 @@ This repository contains a REST API service designed to test your ability to bui
 - LINQ queries for data manipulation
 - SQLite
 
-## Setup and Installation
+## Brief Note C# and familiarity of above frameworks.
+- I've used C# and these tools for quite some time now.  Refactoring and optimizing is still something that must be done but they're great tools to use.
+
+## Setup and Installation (Execution Instructions)
 
 1. Clone this repository:
     ```bash
@@ -38,11 +41,22 @@ This repository contains a REST API service designed to test your ability to bui
 
 4. API will be available at `http://localhost:5119`.
 
+5. From Visual Studio 2022, simply double-click on the file named "CenterfieldAPI.http" and click the "Send request" links to generate another preview window with results of the http call or use an external API testing tool like Postman.
+
 ## API Documentation
 
 - `GET /coffeeshops/all`: Retrieve all coffee shops
-- `GET /coffeeshops/filter`: Filter coffee shops based on rating or open status
+- `GET /coffeeshops/e4534063-6068-08dd-adb0-1f377114ced2`: Get by Id
+- `GET /coffeeshops/filter?minRating=4.95&isOpen=true`: Filter coffee shops based on rating or open status
 - `POST /coffeeshops`: Create a new coffee shop entry
+
+## TODO's (Next Steps to make this production-ready)
+1. Incorporate rate-limiting.
+2. Add Authorization and Authentication.
+3. Stress test it thoroughly.
+4. Write many more tests.
+5. Cache some of the data with Redis.
+
 
 ## License
 
