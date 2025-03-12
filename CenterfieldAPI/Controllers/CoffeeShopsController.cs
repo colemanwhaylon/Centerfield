@@ -27,6 +27,7 @@ namespace CenterfieldAPI.Controllers
         {
             var coffeeShops = _dbContext.CoffeeShops
                      .Select(coffeeShop => new CoffeeShopDto(
+                         coffeeShop.Id,
                          coffeeShop.Name,
                          coffeeShop.OpeningTime,
                          coffeeShop.ClosingTime,
@@ -40,6 +41,33 @@ namespace CenterfieldAPI.Controllers
             // Return all coffee shop instances asynchronously
             return Ok(await Task.FromResult(coffeeShops));
         }
+
+        // GET: api/coffeeshops/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CoffeeShopDetailsDto>> GetById(Guid id)
+        {
+            // Find the coffee shop by the provided ID
+            var coffeeShop = await _dbContext.CoffeeShops
+                .Where(c => c.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (coffeeShop == null)
+            {
+                // If no coffee shop is found, return NotFound
+                return NotFound();
+            }
+
+            // Return the coffee shop details as DTO
+            return Ok(new CoffeeShopDetailsDto(
+                coffeeShop.Id,
+                coffeeShop.Name,
+                coffeeShop.OpeningTime,
+                coffeeShop.ClosingTime,
+                coffeeShop.Location,
+                coffeeShop.Rating
+            ));
+        }
+
 
         // GET: api/coffeeshops
         // Filtered GET by minRating and/or isOpen
@@ -64,6 +92,7 @@ namespace CenterfieldAPI.Controllers
 
             var businesses =  coffeeShops
                      .Select(coffeeShop => new CoffeeShopDto(
+                         coffeeShop.Id,
                          coffeeShop.Name,
                          coffeeShop.OpeningTime,
                          coffeeShop.ClosingTime,

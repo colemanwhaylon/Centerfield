@@ -2,6 +2,7 @@
 {
     public record CoffeeShopDto
     (
+        Guid Id,
         string Name,
         TimeOnly OpeningTime,
         TimeOnly ClosingTime,

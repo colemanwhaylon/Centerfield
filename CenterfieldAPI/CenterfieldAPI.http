@@ -5,6 +5,12 @@ GET {{CenterfieldAPI_HostAddress}}/coffeeshops/all
 Accept: application/json
 
 ###
+
+GET {{CenterfieldAPI_HostAddress}}/coffeeshops/e4534063-6068-08dd-adb0-1f377114ced2
+Accept: application/json
+
+###
+
 GET {{CenterfieldAPI_HostAddress}}/coffeeshops/filter?minRating=4.95&isOpen=true
 Accept: application/json
 

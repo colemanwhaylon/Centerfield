@@ -9,13 +9,17 @@ namespace CenterfieldAPI.Entities
         public CoffeeShop()
         {
             this.Name = "No Name Set";
+            this.Location = null;
+            this.Rating = 0.0m;
         }
         public CoffeeShop(string name, TimeOnly openingTime, TimeOnly closingTime)
              : base(name, openingTime, closingTime)
 
         {
-            this.Name = "No Name Set";
-            this.Location = "No Location Set";
+            this.Name = name;
+            this.OpeningTime = openingTime;
+            this.ClosingTime = closingTime;
+            this.Location = null;
             this.Rating = 0.0m;
         }
         public override Guid Id { get; set; }
